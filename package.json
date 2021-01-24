@@ -2,7 +2,7 @@
   "name": "@xzbit-bot/atdie",
   "version": "0.0.0",
   "description": "Do or die !",
-  "main": "dist/main.js",
+  "main": "dist/index.js",
   "author": "Romain Bourjot <romain.bourjot@xzbit-bot.com>",
   "license": "CECILL-C",
   "private": false,
