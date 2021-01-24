@@ -13,8 +13,13 @@ jobs:
         with:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: yarn --frozen-lockfile
-      - run: yarn preflight
-      - run: yarn publish --new-version "${GITHUB_REF:11}" --no-git-tag-version --access public
+      - name: Install
+        run: yarn --frozen-lockfile
+      - name: Preflight
+        run: yarn preflight
+      - name: Define NPM tag
+        run: echo "CUSTOM_NPM_TAG=$(echo ${GITHUB_REF:11} | grep -Eio '[a-z]+')" >> $GITHUB_ENV
+      - name: Publilsh
+        run: yarn publish --new-version "${GITHUB_REF:11}" --no-git-tag-version --access public --tag ${CUSTOM_NPM_TAG:-latest}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
