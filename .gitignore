@@ -1,4 +1,5 @@
 .vscode
+dist
 
 # yarn zero-install
 .yarn/unplugged

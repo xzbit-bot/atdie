@@ -1,17 +1,20 @@
-name: Preflight
+name: Publish
 
 on:
-  pull_request:
-    branches:
-      - main
+  release:
+    types: [published]
 
 jobs:
-  preflight:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: '14.x'
+          registry-url: 'https://registry.npmjs.org'
       - run: yarn --frozen-lockfile
       - run: yarn preflight
+      - run: yarn publish --new-version $GITHUB_REF
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
