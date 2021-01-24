@@ -15,6 +15,6 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: yarn --frozen-lockfile
       - run: yarn preflight
-      - run: yarn publish --new-version $GITHUB_REF
+      - run: yarn publish --new-version "${GITHUB_REF:11}" --no-git-tag-version --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
