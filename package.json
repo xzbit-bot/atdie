@@ -1,5 +1,5 @@
 {
-  "name": "@xzbitbot/atdie",
+  "name": "@xzbit-bot/atdie",
   "version": "0.0.0",
   "description": "Do or die !",
   "main": "dist/main.js",
