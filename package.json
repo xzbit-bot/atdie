@@ -9,8 +9,8 @@
   "homepage": "https://github.com/xzbit-bot/atdie#readme",
   "bugs": "https://github.com/xzbit-bot/atdie/issues",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/xzbit-bot/atdie.git"
+    "type": "git",
+    "url": "https://github.com/xzbit-bot/atdie.git"
   },
   "files": [
     "dist"
